@@ -1,1 +1,7 @@
 notas
+*.aux
+*.log
+*.fls
+*.out
+*.gz
+*.fdb_latexmk
