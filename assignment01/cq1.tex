@@ -45,8 +45,22 @@
  bla bla bla
  Examples:
  \begin{enumerate}[(a)]
- 	\item $M \ket v$ 
- 	\item $\braket{u}{v}$
+ 	\item We will prove that $U^{*}U = I$. We know $U$ is diagonalizable, so $U$ can be written as \[U = \sum_{i=0}^{n} \lambda_i \ketbra{v_i}{v_i}\] where
+			all $\lambda_i$ are eigenvalues and $\ket{v_i}$ are there respective eigenvectors. 
+			Then, \[ U^{*} = \sum_{i=0}^{n} \overline{\lambda_i} \braket{v_i}{v_i}\]
+			Note that all eigenvectors are orthogonal, each means that, $\braket{v_i}{v_i} \ketbra{v_j}{v_j} = 0$ when $i \neq j$, and $\braket{v_i}{v_i} \ketbra{v_j}{v_j} = 1$
+			when $i = j$. So we have, \[ U^{*}U = \sum_{i=0}^{n} \overline{\lambda_i} \lambda_i\] and by the hypothesis
+			$\overline{\lambda_i} \lambda_i = \left\lvert \lambda_i \right\rvert = 1$. Therefore $ U^{*}U = I$.
+ 	\item Take $\lambda$ a eigenvalue of U unitary, and $\ket{v}$ his associated eigenvector, so the equity bellow
+			is true, \[ U \ket{v} = \lambda\ket{v} \]
+			Note that, $ = \overline{\lambda}\bra{v}$.
+			Then, when we multiply the first equation for $\bra{v}U^{*}$ on the left, we get 
+			\[ \bra{v}U^{*} U \ket{v} = \bra{v}U^{*} \lambda \ket{v}\]
+			\[ \braket{v}{v} = \bra{v}\overline{\lambda}\lambda \ket{v}\]
+			\[ \braket{v}{v} = \overline{\lambda}\lambda \braket{v}{v}\]
+			By the property of the inner product, we have that $\braket{v}{v} \neq 0$, so we can divide the last
+			equation on both sides for $\braket{v}{v}$. And then, 
+			\[ 1 = \overline{\lambda}\lambda = \left\lvert \lambda \right\rvert\]
  	\item $\bra u M \ket v$
  \end{enumerate}
  
