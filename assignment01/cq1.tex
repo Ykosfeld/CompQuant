@@ -42,9 +42,7 @@
 
 
 \begin{ans}
- bla bla bla
- Examples:
- \begin{enumerate}[(a)]
+\begin{enumerate}[(a)]
  	\item We will prove that $U^{*}U = I$. We know $U$ is diagonalizable, so $U$ can be written as \[U = \sum_{i=0}^{n} \lambda_i \ketbra{v_i}{v_i}\] where
 			all $\lambda_i$ are eigenvalues and $\ket{v_i}$ are there respective eigenvectors. 
 			Then, \[ U^{*} = \sum_{i=0}^{n} \overline{\lambda_i} \braket{v_i}{v_i}\]
@@ -61,7 +59,7 @@
 			By the property of the inner product, we have that $\braket{v}{v} \neq 0$, so we can divide the last
 			equation on both sides for $\braket{v}{v}$. And then, 
 			\[ 1 = \overline{\lambda}\lambda = \left\lvert \lambda \right\rvert\]
- 	\item $\bra u M \ket v$
+ 	\item blank
  \end{enumerate}
  
 \end{ans}
@@ -69,7 +67,7 @@
 \noindent \hrulefill
 
 \begin{ans}
- bla bla bla
+	blank
 \end{ans}
 
 \noindent \hrulefill
@@ -103,7 +101,61 @@
 \noindent \hrulefill
 
 \begin{ans}
- bla bla bla
+	blank
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+	\begin{enumerate}[(a)]
+		\item Assume $P_1 + P_2$ is an orthogonal projection. We have
+			\[ (P_1 + P_2)^2 = (P_1)^2 + 2P_1P_2 + (P_2)^2 \]
+			Note that, we know from the classes that, if M is a orthogonal projection, then $M^2 = M$.
+			Since $P_1$ and $P_2$ are orthogonal projections, we have
+			\begin{align*}
+				(P_1)^2 + 2P_1P_2 + (P_2)^2 &= P_1 + P_2&\\
+				P_1 + 2P_1P_2 + P_2 &= P_1 + P_2&\\
+				2P_1P_2 &= 0&\\
+				P_1P_2 &= 0
+			\end{align*}
+			Now assume that $P_1P_2 = 0$. To prove that $P_1 + P_2$ is a orthogonal projection,
+			we need to verify that $(P_1 + P_2)^2 = P_1 + P_2$ and $(P_1 + P_2)^{*}=P_1 + P_2$.
+			Since $P_1$ and $P_2$ are orthogonal projections, we have
+			\begin{align*}
+				(P_1 + P_2)^2 &= (P_1)^2 + 2P_1P_2 + (P_2)^2&\\
+				&= P_1 + 0 + P_2&\\
+				&= P_1 + P_2
+			\end{align*}
+			and
+			\[ (P_1 + P_2)^{*} = (P_1)^{*} + (P_2)^{*} = P_1 + P_2\]
+		\item We will use an analogous reasoning from the last item.
+			Assume that $(P_1 + \dots + P_k)$ is an orthogonal projection. So is true that
+			$(P_1 + \dots + P_k)^2 = (P_1 + \dots + P_k)$.
+			But from the other hand, since for all $i$, $P_i$ is an orthogonal projection, we have
+			\begin{align*}
+				(P_1 + \cdots + P_k)^2 &= \sum_{i=1}^{k} (P_i)^2 + 2\sum_{1 \leq i < j \leq k}P_iP_j&\\
+				&= \sum_{i=1}^{k} P_i  + 2\sum_{1 \leq i < j \leq k}P_iP_j&\\
+			\end{align*}
+			Then, because $(P_1 + \dots + P_k)$ is an orthogonal projection
+			\begin{align*}
+				\sum_{i=1}^{k} P_i  + 2\sum_{1 \leq i < j \leq k}P_iP_j &= \sum_{i=1}^{k} P_i&\\
+				\sum_{1 \leq i < j \leq k}P_iP_j &= 0&\\
+			\end{align*}
+			Again, since for all $i$, $P_i$ is an orthogonal projection, we have that $P_iP_j$
+			are positive semi-definite operators, $P_iP_j \geq 0$. Thus
+			\[ \sum_{1 \leq i < j \leq k}P_iP_j = 0 \Rightarrow P_iP_j = 0 \quad \forall i \neq j \]
+			Now assume, that $ P_iP_j = 0 \quad \forall i \neq j$. Similarly from the last item:
+			\begin{align*}
+				(P_1 + \cdots + P_k)^2 &= \sum_{i=1}^{k} (P_i)^2 + 2\sum_{1 \leq i < j \leq k}P_iP_j&\\
+				&= \sum_{i=1}^{k} P_i  + 0&\\
+				&= (P_1 + \cdots + P_k)&\\
+			\end{align*}
+			and also
+			\begin{align*}
+				(P_1 + \cdots + P_k)^{*} &= (P_1)^{*} + \dots + (P_k)^{*}&\\
+				&= P_1 + \cdots + P_k
+			\end{align*}
+	\end{enumerate}
 \end{ans}
 
 \noindent \hrulefill
@@ -111,21 +163,6 @@
 \begin{ans}
  bla bla bla
 \end{ans}
-
-\noindent \hrulefill
-
-\begin{ans}
- bla bla bla
-\end{ans}
-
-\noindent \hrulefill
-
-\begin{ans}
- bla bla bla
-\end{ans}
-
-
-
 
 \end{document}
 
