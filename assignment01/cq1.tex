@@ -75,7 +75,29 @@
 \noindent \hrulefill
 
 \begin{ans}
- bla bla bla
+	First, we will show that $A\otimes I$ and $I\otimes B$ are diagonalizable.
+	Since $A$ is diagonalizable, we can write $A$ as $A = PDP^{-1}$, where $D$ is a diagonal matrix and $P$ is invertible.
+	Then, by the properties of the kronecker product 
+	\[ A \otimes I = (PDP^{-1}) \otimes I = (P\otimes I)(D\otimes I)(P^{-1}\otimes I) = (P\otimes I)(D\otimes I)(P\otimes I)^{-1} \]
+	Is easy to see that, since $D$ and $I$ are diagonal $D \otimes I$ is also diagonal. So now we've found a diagonalizable representation of $A \otimes I$ 
+	, with $P\otimes I$ invertible and $D \otimes I$ diagonal.
+	By a analogous reasoning, is easy to see that $I \otimes B$ is also diagonalizable, just noticing that if
+	$B = QEQ^{-1}$, $I \otimes E$ is diagonal.
+	Let P be a invertible matrix, since $I$ is the identity matrix, we can comute it in the product. So we have $P^{-1}IP = IP^{-1}P = I $.
+	Now, to show that $A \otimes I+I \otimes B$ is diagonalizable, we need to find a matrix that diagonalizes it.
+	Let $P\otimes Q$ be this candidate.
+	\begin{flalign*}
+		(P\otimes Q)^{-1}(A \otimes I+I \otimes B)(P\otimes Q) &= (P\otimes Q)^{-1}(A\otimes I)(P\otimes Q)+(P\otimes Q)^{-1}(I\otimes B)(P\otimes Q)&\\
+		&= (P^{-1}AP) \otimes (Q^{-1}IQ) + (P^{-1}IP) \otimes (Q^{-1}BQ)&\\
+		&= D \otimes I + I \otimes E
+	\end{flalign*}
+	Since $D \otimes I$ and $I \otimes E$ are diagonal, their sum is also diagonal.
+	And then $A \otimes I+I \otimes B$ is diagonalizable.
+	Now, we know $D$ and $E$ are the diagonal matrixes with the eigenvalues for $A$ and $B$ respectivly. 
+	Note that $D \otimes I$ and $I \otimes E$ are diagonal matrixes with the same eigenvalues of $D$ and $E$,
+	because the kronecker product, now the eigenvalues have multiplicity of the "size" of the square matrixes.
+	So if the eigenvalues of $A$ are $\lambda_i$ and the eigenvalues of $B$ are $\delta_i$,
+	then the eigenvalues of $A \otimes I+I \otimes B$ are $\lambda_i + \delta_i$.
 \end{ans}
 
 \noindent \hrulefill
