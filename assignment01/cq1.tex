@@ -94,9 +94,9 @@
 	\end{flalign*}
 	Since $D \otimes I$ and $I \otimes E$ are diagonal, their sum is also diagonal.
 	And then $A \otimes I+I \otimes B$ is diagonalizable.
-	Now, we know $D$ and $E$ are the diagonal matrixes with the eigenvalues for $A$ and $B$ respectivly. 
-	Note that $D \otimes I$ and $I \otimes E$ are diagonal matrixes with the same eigenvalues of $D$ and $E$,
-	because the kronecker product, now the eigenvalues have multiplicity of the "size" of the square matrixes.
+	Now, we know $D$ and $E$ are the diagonal matrices with the eigenvalues for $A$ and $B$ respectivly. 
+	Note that $D \otimes I$ and $I \otimes E$ are diagonal matrices with the same eigenvalues of $D$ and $E$,
+	because the kronecker product, now the eigenvalues have multiplicity of the "size" of the square matrices.
 	So if the eigenvalues of $A$ are $\lambda_i$ and the eigenvalues of $B$ are $\delta_i$,
 	then the eigenvalues of $A \otimes I+I \otimes B$ are $\lambda_i + \delta_i$.
 \end{ans}
@@ -104,7 +104,45 @@
 \noindent \hrulefill
 
 \begin{ans}
-	blank
+	We know that a given qubit state is given by a vector $\ket{v} = a\ket{0} + b\ket{1}$.
+	We also know that this state can be seen as a point in the Bloch Sphere.
+	Since $\ket{v}$ can be written as $\ket{v} = a\ket{0} + b\ket{1}$, and we got a condition
+	for the values of a and b, given by $\left\lvert a \right\rvert ^2 + \left\lvert b \right\rvert ^2 = 1$,
+	we can also represent the coeficients of $\ket{v}$ as 
+	\[ a = \cos{\frac{\theta}{2}}, \qquad b = \sin{\frac{\theta}{2}}\]
+	And then we can rewrite the former representation as
+	\[ \ket{v} = e^{i\gamma}(\cos{\frac{\theta}{2}}\ket{0} + e^{i\phi}\sin{\frac{\theta}{2}}\ket{1})\]
+	The first factor $ e^{i\gamma}$ is important for observable experiments (when comparing multiple qubits).
+	So, $\theta$ and $\phi$ determine the position of a point in the Bloch sphere, and then represent the state of a qubit.
+	Remember the Pauli matrices X, Y and Z. When we exponentiate this matrices we gain 
+	operators that rotate the position of the qubit in the Bloch sphere about the x, y and z axes.
+	\begin{align*}
+		R_x(\theta) &= e^{-i\theta X / 2} &\\
+		&= \cos{\frac{\theta}{2}}I-i\sin{\frac{\theta}{2}}X&\\
+		&= \begin{pmatrix}
+			\cos{\frac{\theta}{2}} & 0 \\
+			0 & \cos{\frac{\theta}{2}}
+			\end{pmatrix} + \begin{pmatrix}
+				0 & -i\sin{\frac{\theta}{2}} \\
+				-i\sin{\frac{\theta}{2}} & 0
+				\end{pmatrix}&\\
+		&= \begin{pmatrix}
+			\cos{\frac{\theta}{2}} & -i\sin{\frac{\theta}{2}} \\
+			-i\sin{\frac{\theta}{2}} & \cos{\frac{\theta}{2}}
+			\end{pmatrix}
+	\end{align*}
+	The same is done for the other rotations.
+	\begin{align*}
+		R_y(\theta) &= \begin{pmatrix}
+			\cos{\frac{\theta}{2}} & -\sin{\frac{\theta}{2}} \\
+			\sin{\frac{\theta}{2}} & \cos{\frac{\theta}{2}}
+			\end{pmatrix}&\\
+		R_z(\theta) &= \begin{pmatrix}
+			e^{-i\theta/2} & 0 \\
+			0 & e^{i\theta/2}
+			\end{pmatrix}&\\
+	\end{align*}
+	For this question I look it up in the Nielsen's book, pages 15 and 174.
 \end{ans}
 
 \noindent \hrulefill
