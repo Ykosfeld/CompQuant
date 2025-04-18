@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{notation}
+\usepackage{hyperref}
+
+
+
+
+%THEOREM STYLES
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{exerc}{Exercise}
+\newtheorem{ans}{Answer}
+
+%NICE HEADER
+\pagestyle{fancy}\lhead{Gabriel Coutinho} \rhead{CQ - 2025/1}
+\chead{{\large{\bf }}} \lfoot{} \rfoot{\bf \thepage} 
+\cfoot{}
+
+\newcounter{list}
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{{Assignment 3 - due April 13th}}
+\end{center} 
+
+\begin{itemize}
+
+\item This assignment corresponds to the material in Lectures 4 to 7.
+
+\item Lecture 4 was about composing systems. We discussed reduced states, partial trace, and two applications: superdense coding and quantum teleportation. It corresponding to sections 2.3 and 2.4 of Nielsen's, or 3.5 and 3.6 of Wilde's.
+\item Lecture 5 is about Schmidt's decomposition and purification. It corresponds roughly to Section 2.5 of Nielsen's or 3.8 of Wilde's. It also introduced the problem of distinguishing states, corresponding basically to Section 2.2.4 of Nielsen's.
+\item Lecture 6 introduces POVMs. You will find it in 2.2.6 of Nielsen's, or more generally Chapter 4 of Barnett's.
+\item Lecture 7 is about fidelity and quantum channels. Chapter 9 of Nielsen's, but more nicely the end of Chapter 2 and beginning of Chapter 3 of Preskill's.
+\end{itemize}
+
+\newpage
+
+\begin{exerc}@ \\ \ \\ 
+Consider the superdense coding protocol, in which Alice sends Bob a qubit with the intent of transmitting two qubits of information. Suppose a third party Eve intercepts Alice's qubit. Can she infer anything about which of the four possible bit strings Alice is trying to send? If so, how? If not, why not?
+\end{exerc}
+
+\noindent \hrulefill
+
+\begin{exerc}@ \\ \ \\
+  Show an example of a state in a three party system for which a Schmidt decomposition is not available.
+\end{exerc}
+
+\noindent \hrulefill
+
+\begin{exerc}@ \\ \ \\
+  Let $\rho$ be a mixed state, which can be realized in the following two ways:
+  \[
+  	\rho = \sum_{i} p_i \ketbra{a_i}{a_i} = \sum_{i} q_i \ketbra{b_i}{b_i}.
+  \]
+  Find one purification for $\rho$ which allows for either way to be obtained depending only on the observable that is used. Derive an expression for each observable.
+\end{exerc}
+
+\noindent \hrulefill
+
+\begin{exerc}@ \\ \ \\
+  Assume $\{M_1,...,M_m\}$ is a POVM, and $\rho$ is a density matrix. Let $\{\ket{i}\}_{i = 1}^m$ be a basis of an $m$ dimensional system. Prove that
+  \[
+  	\rho' = \sum_{i = 1}^m M_i \rho M_i^* \otimes \ketbra{i}{i}.
+  \]
+  is a density matrix.
+\end{exerc}
+
+\noindent \hrulefill
+
+\begin{exerc} \ \\ \ \\
+	Let $\ket a$ and $\ket b$ be states, and $\ket{a^\perp}$ and $\ket{b^\perp}$ be perpendicular states to each respectively. Let
+	\[
+		M_a = \frac{1}{1+|\braket{a}{b}|} \ketbra{a^\perp}{a^\perp} \quad \text{and}\quad M_b = \frac{1}{1+|\braket{a}{b}|} \ketbra{b^\perp}{b^\perp}.
+	\]
+	Show that $I - M_a - M_b$ is positive semidefinite.
+\end{exerc}
+
+\noindent \hrulefill
+
+\begin{exerc}\ \\
+Alice and Bob are each given one of the qubits of some 2-qubit state. Working as a team, they are required to distinguish between State I and State II with only local projective measurements. That means, they can each measure their own qubit according to some observable. After their measurements, they can send only classical bits to each other.
+
+In each case below, either give a perfect distinguishing procedure or explain why there is no perfect distinguishing procedure.
+
+\begin{enumerate}[(a)]
+	\item \[\text{State 1: }\frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) \quad \text{and} \quad \text{State 2: } \frac{1}{\sqrt{2}} (\ket{01} + \ket{10}) \]
+	\item \[\text{State 1: }\frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) \quad \text{and} \quad \text{State 2: } \frac{1}{\sqrt{2}} (\ket{00} - \ket{11}) \]
+	\item \[\text{State 1: }\frac{1}{\sqrt{2}} (\ket{00} + \ii \ket{11}) \quad \text{and} \quad \text{State 2: } \frac{1}{\sqrt{2}} (\ket{00} - \ii \ket{11}) \]
+\end{enumerate}
+
+\end{exerc}
+
+\noindent \hrulefill
+
+\begin{exerc} \ \\ \ \\
+Recall that in the teleportation protocol, Alice and Bob have a joint state of the form
+\[
+	(\alpha \ket 0_A + \beta \ket 1_A) \otimes \frac{1}{\sqrt{2}} (\ket{00}_{AB} + \ket{11}_{AB}),
+\]
+where subscripts are indicating who possesses each qubit. At the end of the protocol, Bob's qubit is at state $(\alpha \ket 0_B + \beta \ket 1_B)$.
+
+Suppose that Alice's qubit which is going to be teleported is actually entangled with Charlie's, in state
+\[
+	\frac{1}{\sqrt{2}} (\ket{00}_{CA} + \ket{11}_{CA}).
+\]
+Assume now Alice and Bob execute the teleportation protocol regardless. At the end, will the joint state of Charlie's and Bob's qubits be
+\[
+	\frac{1}{\sqrt{2}} (\ket{00}_{CB} + \ket{11}_{CB}) ?
+\]
+Justify your answer.
+\end{exerc}
+
+\noindent \hrulefill
+
+\begin{exerc} \ \\ \ \\
+	Alice wishes to commit a bit to Bob, and later he is supposed to unveil the value of the bit. This procedure is called binding if Alice is unable to change the value of her bit after commitment, and is called concealing if Bob is unable to check the value of the bit until the unveiling moment. The protocol is called secure if it is both binding and concealing.
+	
+	Classically, one way to attempt this is for Alice to send her bit in a safe, and only at the unveiling phase she reveals the safe's secret. The process is concealing so as long as Bob is not a good safe cracker.
+	
+	Quantumly, here is a proposition. Alice prepares one of two distinguishable density operators $\rho_0$ and $\rho_1$ in a bipartite system AB, sends system B to Bob, and keeps A to herself. Later, to unveil, she sends A to Bob, and he performs a measurement to determine whether it is $\rho_0$ or $\rho_1$.
+	
+	Show that if a quantum bit commitment protocol is concealing, then it is not binding. Thus quantum bit commitment is insecure. 
+\\ \ \\
+	\noindent (you may assume that both states to be used are pure, but it would be nice to argue why this is possible as well)	 
+\end{exerc}
+
+
+
+
+\end{document}
+
+
+dá pra mostrar que 1 - fidelity é ótimo ou ao menos feasible na dual da sdp que maximiza distinguir estados?
+
+

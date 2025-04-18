@@ -1,0 +1,181 @@
+%math operators
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rk}{rank}
+\DeclareMathOperator{\vol}{vol}
+%\DeclareMathOperator{\null}{null}
+\DeclareMathOperator{\wt}{wt}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Cay}{Cay}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\pf}{pf}
+\DeclareMathOperator{\vecc}{vec}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Diag}{Diag}
+\DeclareMathOperator{\intr}{int}
+\DeclareMathOperator{\conv}{conv}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+
+%named polytopes
+\newcommand{\stab}{\texttt{STAB}}
+\newcommand{\qstab}{\texttt{QSTAB}}
+\newcommand{\fracc}{\texttt{FRAC}}
+\newcommand{\thh}{\texttt{TH}}
+
+%capital letters for rings -- requires dsfont package
+\newcommand{\Cds}{\mathds{C}}
+\newcommand{\Rds}{\mathds{R}}
+\newcommand{\Zds}{\mathds{Z}}
+\newcommand{\Qds}{\mathds{Q}}
+\newcommand{\Nds}{\mathds{N}}
+
+\newcommand{\Kds}{\mathbb{K}}
+\newcommand{\Fds}{\mathbb{F}}
+\newcommand{\Vds}{\mathbb{V}}
+\newcommand{\Bds}{\mathbb{B}}
+\newcommand{\Sds}{\mathbb{S}}
+\newcommand{\Lds}{\mathbb{L}}
+\newcommand{\Tds}{\mathbb{T}}
+\newcommand{\Pds}{\mathbb{P}}
+\newcommand{\Qbb}{\mathbb{Q}}
+\newcommand{\Cbb}{\mathbb{C}}
+
+\newcommand{\symN}[1]{\mathds{S}^#1}
+\newcommand{\psdN}[1]{\mathds{S}_+^#1}
+\newcommand{\pdN}[1]{\mathds{S}_{++}^#1}
+
+
+%capital letters for operators or collections
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\B}{\mathcal{B}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\CC}{\mathcal{C}}
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\T}{\mathcal{T}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\N}{\mathcal{N}}
+
+
+
+%upright letters for mathematical constants and operators
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\ddd}{\mathrm{d}}
+\newcommand{\Tr}{\mathsf{T}}
+
+%boldfaced letters for vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
+%upright letters for coordinates
+\newcommand{\crd}[1]{\mathrm{#1}}
+
+%matrix and equation builder
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+%letter modifiers
+\newcommand{\ov}{\overline}
+\newcommand{\wh}{\widehat}
+
+
+
+%bra-ket
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\ketbra}[2]{| #1 \rangle \langle #2 |}
+\newcommand{\braket}[2]{\langle  #1 |#2 \rangle}
+
+
+
+%arrow
+\newcommand{\qhom}{\stackrel{q}{\to}}
+
+\newcommand{\iprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\sdp}[3]{
+\begin{align*}
+\text{ #1} \quad & #2 \\
+\text{subject to} \quad & #3 
+\end{align*}}
+
+\newcommand{\LP}[3]{
+\begin{align*}
+\text{ #1} \quad & #2 \\
+\text{subject to} \quad & #3 
+\end{align*}}
+
+\newcommand{\LPP}[3]{
+\begin{center}\begin{tabular}{cc}
+(P)\hspace{1cm} &
+$\begin{aligned}
+\text{ #1} \quad & #2 \\
+\text{subject to} \quad & #3 
+\end{aligned}$
+\end{tabular}\end{center}
+}
+
+\newcommand{\LPPP}[3]{
+\begin{center}\begin{tabular}{cc}
+(P')\hspace{1cm} &
+$\begin{aligned}
+\text{ #1} \quad & #2 \\
+\text{subject to} \quad & #3 
+\end{aligned}$
+\end{tabular}\end{center}
+}
+
+\newcommand{\LPD}[3]{
+\begin{center}\begin{tabular}{cc}
+(D)\hspace{1cm} &
+$\begin{aligned}
+\text{ #1} \quad & #2 \\
+\text{subject to} \quad & #3 
+\end{aligned}$
+\end{tabular}\end{center}
+}
+
+
+\newcommand{\LPpair}[6]{
+\begin{center}\begin{tabular}{ccc|ccc}
+(P)\hspace{0.1cm} &
+$\begin{aligned}
+\text{ #1} \quad & #2 \\
+\text{subject to} \quad & #3 
+\end{aligned}$
+&
+\hspace{0cm}
+&
+\hspace{0cm}
+&
+(D)\hspace{0.1cm} &
+$\begin{aligned}
+\text{ #4} \quad & #5 \\
+\text{subject to} \quad & #6 
+\end{aligned}$
+
+\end{tabular}\end{center}
+}
+
+\newcommand{\LPpairQ}[6]{
+\begin{tabular}{cc|cc}
+\begin{minipage}{6.5cm}
+$\begin{aligned}
+\text{ #1} \quad & #2 \\
+\text{subject to} \quad & #3 
+\end{aligned}$
+\end{minipage}
+&
+\hspace{0.5cm}
+&
+\hspace{0.3cm}
+&
+\begin{minipage}{4cm}
+$\begin{aligned}
+\text{ #4} \quad & #5 \\
+\text{subject to} \quad & #6 
+\end{aligned}$
+\end{minipage}
+\end{tabular}
+}
+
+

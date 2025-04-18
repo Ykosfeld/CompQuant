@@ -1,0 +1,223 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{hyperref}
+
+
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\ketbra}[2]{| #1 \rangle \langle #2 |}
+\newcommand{\braket}[2]{\langle  #1 |#2 \rangle}
+
+
+%THEOREM STYLES
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{exerc}{Exercise}
+\newtheorem{ans}{Answer}
+
+%NICE HEADER
+\pagestyle{fancy}\lhead{\textcolor{red}{}} \rhead{CQ - 2025/1}
+\chead{{\large{\bf }}} \lfoot{} \rfoot{\bf \thepage} 
+\cfoot{}
+
+\newcounter{list}
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{{Assignment 2 - due April 13th}}
+\end{center} 
+
+\noindent \hrulefill
+
+\begin{ans}
+	We will show that Eve can't infer about the bits ALice is trying to send to Bob.
+    First, let's remember that Alice and Bob have a pair in one of the four possible
+    Bell's states. Alice then performs one of four operations in her qubit: I, X, Y or Z.
+    Applying one of these operators changes her qubit to other Bell state. Let's show
+    that if Eve gets Alice's qubit, she can't know which of the operations she applied.
+    All Bell states can be written as:
+    \[ \ket{Bell} = \frac{\ket{0}\otimes\ket{u} + \ket{1}\otimes\ket{v}}{\sqrt{2} }\]
+    where $\{ \ket{u}, \ket{v}\}$ are orthogonal states.
+    So for any Bell state, the following holds: 
+    \[\ketbra{u}{v} = 0, \ketbra{u}{u} = \ketbra{v}{v} = 1\]
+    Then, we calculate the partial trace of Alice's qubit, we have
+    \[ \sum_{j}\left\lvert \braket{j}{u}\right\rvert^2 = \braket{u}{u} = 1\]
+    \[ \sum_{j}\left\lvert \braket{j}{v}\right\rvert^2 = \braket{v}{v} = 1\]
+    and then 
+    \[\rho_A = \frac{1}{2}(\ket{0}\bra{0} + \ket{1}\bra{1}) = \frac{I}{2}\]
+    That's true for all Bell states.
+    So, Eve can't know which operation Alice did, without Bob's qubit.
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+	blank
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+	A purification of $\rho$ is a pure state $\ket{\psi}_{AB}$ in the joint system
+    $A \otimes B$ such that:
+    \[\rho_A = Tr_B(\ket{\psi}\bra{\psi}_{AB})\]
+    We have two different compositions for $\rho$, so we will write two different
+    schmidt decompositions to match each eigenbasis $\ket{a_i}$ or $\ket{b_i}$.
+    To match $\{\ket{a_i}\}$: 
+    \[ \ket{\psi}_{AB} = \sum_{i}\sqrt{p_i}\ket{a_i}_A\otimes\ket{v_i}_B\]
+    where $\{\ket{v_i}_B\}$  is an arbitrary orthonormal basis for B.
+    To match $\{\ket{b_j}\}$: 
+    \[ \ket{\psi}_{AB} = \sum_{j}\sqrt{q_j}\ket{b_j}_A\otimes\ket{w_j}_B\]
+    where $\{\ket{w_j}_B\}$  is an arbitrary orthonormal basis for B.
+    We can now unify both decompositions expressing $\{\ket{b_j}\}$ in terms of $\{\ket{a_i}\}$:
+    \[\ket{b_j} = \sum_i c_{ji}\ket{a_i}, \quad where \quad c_{ji} = \braket{a_i}{b_j}\]
+    Now we can have two observables for each decomposition.
+    \[H_1 = \sum_i \lambda_i \ket{v_i}\bra{v_i}\]
+    and
+    \[H_2 = \sum_j \mu_j \ket{w_j}\bra{w_j}\]
+    $H_1$ recovers the $\{\ket{a_i}\}$ decomposition and $H_2$ recovers the $\{\ket{b_j}\}$.
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+	To show that $\rho'$ is a density matrix, we need to show that is hermitian, the trace is unitary and is positive semidefinite.
+    Hermitian($(\rho')^* = \rho'$): For each term
+    \[(M_i\rho M_i^*)^* = (M_i^*)^*\rho^*M_i^* = M_i\rho M_i^*\]
+    All $\ket{i}\bra{i}$ is also hermitian. We know the sum of hermitians is also hermitian, so $\rho'$ is hermitian.
+    Unitary trace: 
+    \[Tr(\rho') = \sum_{i=1}^{m} Tr(M_i\rho M_i^*) \cdot Tr(\ket{i}\bra{i})\]
+    We know that $\ket{i}$ is normalized, so $Tr(\ket{i}\bra{i}) = 1$. Also
+    by the properties of the trace, we have:
+    \[Tr(M_i\rho M_i^*) = Tr(M_i^*M_i\rho )\]
+    Then:
+    \[Tr(\rho') = \sum_{i=1}^{m}Tr(M_i^*M_i\rho )\]
+    because $\{ M_i \}$ is a POVM, we have 
+    \[\sum_{i=1}^{m}M_i^*M_i = I \]
+    Thus:
+    \[Tr(\rho') = Tr\left( \left( \sum_{i=1}^{m}M_i^*M_i\right) \rho \right) = Tr(I\rho) = Tr(\rho) =1 \]
+    Positive Semidefiniteness: we need to show that $\rho'\geq 0$, for any state
+    $\ket{\psi}$
+    \[ \bra{\psi}\rho'\ket{\psi} \geq 0\]
+    Expressing $\ket{\psi}$ in the basis $\{\ket{i}\}$:
+    \[ \ket{\psi} = \sum_{j=1}^{m} \ket{\psi_j} \otimes \ket{j}\]
+    So
+    \[\bra{\psi}\rho'\ket{\psi} = \sum_{i=1}^{m} \bra{\psi} (M_i\rho M_i^* \otimes \ket{i}\bra{i}) \ket{\psi}\]
+    Because the orthogonality of the basis we have
+    \[\bra{\psi}\rho'\ket{\psi} = \sum_{i=1}^{m} \bra{\psi} M_i\rho M_i^* \ket{\psi}\]
+    Since $\rho \geq 0$ and $M_i\rho M_i^*$ is a positive operator, because $\rho$ is positive
+    and $M_i\rho M_i^*$ is a conjugation of $\rho$, we have that each term $\bra{\psi} M_i\rho M_i^* \ket{\psi} \geq 0$.
+    Thus $\rho'$ is positive semidefinite. 
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+	Firts, lets see what happens with $M_A + M_B$:
+    \[M_A + M_B = \frac{1}{1+\left\lvert \braket{a}{b}\right\rvert} (\ket{a^\perp}\bra{a^\perp} + \ket{b^\perp}\bra{b^\perp})\]
+    Let's call $c = \left\lvert \braket{a}{b}\right\rvert$ and $D = \ket{a^\perp}\bra{a^\perp} + \ket{b^\perp}\bra{b^\perp}$.
+    Observe that
+    \[D = \begin{pmatrix}
+        1 & c \\
+        c^* & 1
+        \end{pmatrix}\]
+    So calculating the eigenvalues for D, we have:
+    \[\det D = \begin{pmatrix}
+        1-\lambda & c \\
+        c^* &  1-\lambda
+        \end{pmatrix} = (1-\lambda)^2 - \left\lvert c \right\rvert^2 = 0 \] 
+    \[ (1-\lambda)^2 = \left\lvert c \right\rvert^2 \] 
+    \[ 1-\lambda = \pm \left\lvert c \right\rvert\]
+    \[ \lambda = 1 \pm \left\lvert c \right\rvert\]
+    Since $c \leq 1$, we know that the eigenvalue $\lambda$ satisfy: 
+    \[ 0 \leq 1 - \left\lvert c \right\rvert\ \leq \lambda \leq 1 + \left\lvert c \right\rvert\ \leq 2\]
+    So $0 \leq \lambda \leq 2$. Then we have that $D \leq 2I$, thus
+    \[M_A + M_B = \frac{1}{1+c}D \leq \frac{2}{1+c}I \leq I\]
+    And so $I-M_A - M_B \geq 0 $ thus positive semidefinite.
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+	\begin{enumerate}[(a)]
+        \item Notice that the state 1 is the Bell state $\ket{\phi^+}$ and state 2 is 
+            the Bell state $\ket{\psi^+}$. We know that both states are entangled, with
+            different correlations: for $\ket{\phi^+}$ both qubits are the same (00 or 11), 
+            and for $\ket{\psi^+}$ the qubits are different (01 or 10). We need a basis
+            which the states can be distinguished based on the outcomes. If we choose 
+            $\{ \ket{0}, \ket{1}\}$ we have for the state 1: $50\%$ probabilty for 00 or 11.
+            And for state 2: $50\%$ probabilty for 01 or 10. So if Alice and Bob get the 
+            same results (00 or 11) thay have state 1, and if they get different results (01, 10) 
+            they have state 2. So in this case the states are perfect distinguishing.
+        \item For this case we can apply an analogous reasoning from the last item, but 
+            this time using $\{ \ket{+}, \ket{-}\}$ as basis. So for the state 1: $50\%$ probabilty for ++ or --.
+            And for state 2: $50\%$ probabilty for +- or -+. And again, if Alice and Bob
+            have the same results they have state 1, and if they get different results they have state 2.
+            And again the states are perfect distinguishing.
+        \item blank
+    \end{enumerate}
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+	To analyze the teleportation protocol, we need to consider Alice's two qubits (A and A') together. Let's expand the state:
+    \[\ket{\psi_{CAB}} = \frac{1}{2}(\ket{0}_C\ket{0}_A\ket{0}_{A'}\ket{0}_B + \ket{0}_C\ket{0}_A\ket{1}_{A'}\ket{1}_B + \ket{1}_C\ket{1}_A\ket{0}_{A'}\ket{0}_B + \ket{1}_C\ket{1}_A\ket{1}_{A'}\ket{1}_B)\]
+    Alice performs a Bell basis measurement on her qubits A and A'. The Bell basis consists of four states:
+    \[\ket{\Phi^{\pm}} = \frac{1}{\sqrt{2}}(\ket{00} \pm \ket{11})\]
+    \[\ket{\Psi^{\pm}} = \frac{1}{\sqrt{2}}(\ket{00} \pm \ket{11})\]
+    We can rewrite Alice's qubits (A and A') in this basis. For example:
+    \[\ket{00}_{AA'} = \frac{1}{\sqrt{2}}(\ket{\Phi^+} + \ket{\Phi^-})\]
+    \[\ket{11}_{AA'} = \frac{1}{\sqrt{2}}(\ket{\Phi^+} - \ket{\Phi^-})\]
+    \[\ket{01}_{AA'} = \frac{1}{\sqrt{2}}(\ket{\Psi^+} + \ket{\Psi^-})\]
+    \[\ket{10}_{AA'} = \frac{1}{\sqrt{2}}(\ket{\Psi^+} - \ket{\Psi^-})\]
+    When Alice performs her Bell measurement, she gets one of four possible outcomes, each occurring with equal probability $(25\%)$. The state of Charlie and Bob's qubits collapses accordingly
+    \begin{enumerate}
+        \item If Alice measures $\ket{\Phi^+}$: 
+            \[\ket{\psi_{CB}} = \frac{1}{\sqrt{2}}(\ket{00}_{CB} + \ket{11}_{CB})\]
+            No correction needed
+        \item If Alice measures $\ket{\Phi^-}$: 
+            \[\ket{\psi_{CB}} = \frac{1}{\sqrt{2}}(\ket{00}_{CB} - \ket{11}_{CB})\]
+            Bob applies Z
+        \item If Alice measures $\ket{\Psi^+}$: 
+            \[\ket{\psi_{CB}} = \frac{1}{\sqrt{2}}(\ket{01}_{CB} + \ket{10}_{CB})\]
+            Bob applies X
+        \item If Alice measures $\ket{\Psi^-}$: 
+            \[\ket{\psi_{CB}} = \frac{1}{\sqrt{2}}(\ket{01}_{CB} - \ket{10}_{CB})\]
+            Bob applies XZ
+    \end{enumerate}
+    After correction, the state of CB will always be $\frac{1}{\sqrt{2}}(\ket{00}_{CB} + \ket{11}_{CB})$. So the teleportation protocol preserves the entanglement initially shared between Charlie and Alice, transferring it to Charlie and Bob.
+    
+\end{ans}
+
+\noindent \hrulefill
+
+\begin{ans}
+    Consider a quantum bit commitment protocol where Alice prepares either $\rho_0 = |\psi_0\rangle\langle\psi_0|_{AB}$ or $\rho_1 = |\psi_1\rangle\langle\psi_1|_{AB}$ in a bipartite system $AB$, sends subsystem $B$ to Bob, and keeps $A$.
+    For the protocol to be concealing, Bob's reduced states must satisfy:
+    \[ \text{Tr}_A(\rho_0) = \text{Tr}_A(\rho_1) = \sigma_B \]
+    This implies the global states are related by a unitary on $A$:
+    \[ |\psi_1\rangle_{AB} = (U_A \otimes I_B)|\psi_0\rangle_{AB} \]
+    Alice can exploit this structure to cheat:
+    \begin{itemize}
+        \item After committing to 0 (sending $B$ of $|\psi_0\rangle$), she keeps $A$
+        \item To change to 1, she applies $U_A$ to $A$
+        \item The final state becomes $|\psi_1\rangle$, which Bob will accept as commitment 1
+    \end{itemize}
+    Since the reduced state $\sigma_B$ remains unchanged during this process, Bob cannot detect Alice's manipulation. Therefore, any concealing protocol necessarily violates binding - Alice can always change her commitment by applying the appropriate unitary to her subsystem.
+\end{ans}
+
+\end{document}
